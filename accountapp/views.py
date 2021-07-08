@@ -10,4 +10,4 @@ def hello_world(request):
 
     else:
         return render(request, 'accountapp/hello_world.html',
-                      context={'text' : 'GET METHOD!'})
+                      context={'text':'GET METHOD!'})
