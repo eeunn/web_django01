@@ -4,11 +4,27 @@
         <h1>eeunn</h1>
     </div>
     <div class="eeunn_header_bottomstyle">
-        <span>nav1 </span>
-        <span>nav2 </span>
-        <span>nav3 </span>
-        <span>nav4 </span>
+        <span>nav1</span>
+        <span>nav2</span>
+
+
+        {% if not user.is_authenticated %}
+        <span>
+            <a href="{% url 'accountapp:login' %}">
+                LOGIN
+            </a>
+        </span>
+        <span>
+            <a href="{% url 'accountapp:create' %}">
+                SIGNUP
+            </a>
+        </span>
+        {% else %}
+        <span>
+            <a href="{% url 'accountapp:logout' %}">
+                LOGOUT
+            </a>
+        </span>
+        {% endif %}
     </div>
-
-
 </div>
