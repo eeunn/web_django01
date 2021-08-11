@@ -44,6 +44,7 @@
                     <div class="my-2">
                         <p>{{ comment.content }}</p>
                     </div>
+
                     {% if comment.writer == user %}
                     <div style="text-align: right">
                         <a href=" {% url 'commentapp:delete' pk=comment.pk %}"
@@ -52,6 +53,7 @@
                         </a>
                     </div>
                     {% endif %}
+
                 </div>
             {% endfor %}
 
