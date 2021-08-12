@@ -68,6 +68,7 @@
     font-size: 1.1rem;
 }
 
+/*(max-width 어쩌구) -> 만약 이거보다 적다면 */
 @media screen and (max-width: 500px) {
     html {
         /* defaul font-size = 16 px*/
