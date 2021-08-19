@@ -3,6 +3,7 @@
 {% block content %}
 
 <div class="text-center mw-500 m-auto">
+    {# 프로젝트 정보#}
     <div class="m-5">
             <img src="{{ target_project.image.url }}" class='profile_image m-4' alt="PROFILE IMAGE">
             <h2 class="NNS_B">
@@ -12,6 +13,13 @@
     </div>
 
 </div>
+
+    {# 구독 버튼#}
+    <div class="text-center">
+        <a href="{% url 'subscribeapp:subscribe' project_pk=target_project.pk %}" class=" btn btn-primary rounded-pill px-5">
+            SUBSCRIBE</a>
+    </div>
+
 
 
     <div>
