@@ -4,8 +4,9 @@ from django.shortcuts import render
 # Create your views here.
 from django.urls import reverse
 from django.utils.decorators import method_decorator
-from django.views.generic import RedirectView
+from django.views.generic import RedirectView, ListView
 
+from articleapp.models import Article
 from projectapp.models import Project
 from subscribeapp.models import Subscription
 
@@ -27,3 +28,18 @@ class SubscriptionView(RedirectView):
 
     def get_redirect_url(self, *args, **kwargs):
         return reverse('projectapp:detail', kwargs={'pk':kwargs['project_pk']})
+
+# 구독중인 게시판 리스트만 보여주기
+@method_decorator(login_required, 'get')
+class SubscriptionListView(ListView):
+    model = Article
+    context_object_name = 'article_list'
+    template_name = 'subscribeapp/list.html'
+    paginate_by = 20
+
+    def get_queryset(self):
+        # 요청한 유저가 구독한 게시판을 list 형태로 가져오기
+        project_list = Subscription.objects.filter(user=self.request.user).values_list('project')
+        # project_list에 article 리스트가 있다면 (게시글)
+        article_list = Article.objects.filter(project__in=project_list)
+        return article_list
