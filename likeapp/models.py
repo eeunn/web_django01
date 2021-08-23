@@ -7,7 +7,7 @@ from articleapp.models import Article
 
 class LikeRecord(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE,
-                             related_name='list_record', null=False)
+                             related_name='like_record', null=False)
     article = models.ForeignKey(Article, on_delete=models.CASCADE,
                                 related_name='like_record', null=False)
 
