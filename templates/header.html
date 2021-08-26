@@ -4,20 +4,20 @@
         <h1>eeunn</h1>
     </div>
     <div class="eeunn_header_bottomstyle">
-        <span>
+        <span class="mx-2">
             <a href="{% url 'articleapp:list' %}">
                 ARTICLE
             </a>
         </span>
 
-        <span>
+        <span class="mx-2">
             <a href="{% url 'projectapp:list' %}">
                 PROJECTS
             </a>
         </span>
 
         {% if user.is_authenticated %}
-        <span>
+        <span class="mx-2">
             <a href="{% url 'subscribeapp:list' %}">
                 SUBSCRIBE
             </a>
@@ -27,23 +27,23 @@
 
 
         {% if not user.is_authenticated %}
-        <span>
+        <span class="mx-2">
             <a href="{% url 'accountapp:login' %}">
                 LOGIN
             </a>
         </span>
-        <span>
+        <span class="mx-2">
             <a href="{% url 'accountapp:create' %}">
                 SIGNUP
             </a>
         </span>
         {% else %}
-        <span>
+        <span class="mx-2">
             <a href="{% url 'accountapp:detail' pk=user.pk %}">
                 MYPAGE
             </a>
         </span>
-        <span>
+        <span class="mx-2">
             <a href="{% url 'accountapp:logout' %}">
                 LOGOUT
             </a>
